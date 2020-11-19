@@ -15,25 +15,29 @@ module.exports = (sequelize, DataTypes) => {
   };
   movie.init({
     title: {
-        type: DataTypes.TEXT,
-        validate: { notNull: true }
-    },
-    headline: {
-        type: DataTypes.TEXT,
-        validate: { notNull: true }
+      type: DataTypes.TEXT,
+      allowNull: false,
+      // validate: { notNull: true }
     },
     byline: {
-        type: DataTypes.TEXT,
-        validate: { notNull: true }
+      type: DataTypes.TEXT,
+      allowNull: false,
+      // validate: { notNull: true }
+    },
+    headline: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      // validate: { notNull: true }
     },
     date: {
-        type: DataTypes.DATE,
-        validate: { isDate: true }
+      type: DataTypes.DATE,
+      validate: { isDate: true }
     },
     url: {
-        type: DataTypes.TEXT,
-        validate: { isUrl: true }
-    },
+      type: DataTypes.TEXT,
+      validate: { isUrl: true }
+    }
+  }, {
     sequelize,
     modelName: 'movie',
   });
